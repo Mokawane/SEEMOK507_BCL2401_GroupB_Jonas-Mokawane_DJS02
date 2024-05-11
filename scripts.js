@@ -10,16 +10,10 @@ form.addEventListener("submit", (event) => {
 // Missing values validator
 if (!dividend || !divider) {
   result.innerText = "Division not performed. Both values are required in inputs. Try again"; 
-  return;
+  result.classList.add("error-message");
 }
 
-if (divider === "0") {
-  result.innerText = "Division not performed. Invalid number provided. Try again";
-  throw new Error (
-    "Invalid division, cannot use 0"
-  );
-}
-
+// Providing any input that is not a number will crash the program
 else if (isNaN(divider) || isNaN(dividend)) {
   const div = document.createElement('div');
   div.classList.add('critical-error');
@@ -27,6 +21,15 @@ else if (isNaN(divider) || isNaN(dividend)) {
   document.body.append(div)
   throw new Error ("Both inputs should be numbers");
   
+}
+
+// Invalid division handler
+if (divider === "0") {
+  result.innerText = "Division not performed. Invalid number provided. Try again";
+  result.classList.add("error-message");
+  throw new Error (
+    "Invalid division, cannot use 0"
+  );
 }
 
 });
