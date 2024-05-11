@@ -20,5 +20,14 @@ if (divider === "0") {
   );
 }
 
+else if (isNaN(divider) || isNaN(dividend)) {
+  const div = document.createElement('div');
+  div.classList.add('critical-error');
+  div.textContent = `Something critical went wrong. Please reload the page`;
+  document.body.append(div)
+  throw new Error ("Both inputs should be numbers");
+  
+}
+
 });
 
