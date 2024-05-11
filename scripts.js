@@ -12,5 +12,13 @@ if (!dividend || !divider) {
   result.innerText = "Division not performed. Both values are required in inputs. Try again"; 
   return;
 }
+
+if (divider === "0") {
+  result.innerText = "Division not performed. Invalid number provided. Try again";
+  throw new Error (
+    "Invalid division, cannot use 0"
+  );
+}
+
 });
 
