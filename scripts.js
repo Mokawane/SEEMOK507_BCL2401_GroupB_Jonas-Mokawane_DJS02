@@ -32,5 +32,8 @@ if (divider === "0") {
   );
 }
 
+const results = Math.floor(dividend / divider);
+result.innerText = results;
+
 });
 
